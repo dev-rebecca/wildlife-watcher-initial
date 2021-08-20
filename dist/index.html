@@ -5,9 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js.js"></script>
     <title>Part 2</title>
 </head>
 <body>
-    <h1>Hello again</h1>
+
+    Register:
+    <form method="POST" onsubmit="register(event)" action="ws.php?page=register">
+        <input type="text" name="first-name" placeholder="First name">
+        <input type="text" name="last-name" placeholder="Last name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Register">
+    </form>
+
+    <br>Login:
+    <form method="POST" onsubmit="login(event)" action="ws.php?page=login">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Login">
+    </form>
+
+    <br>Logout:
+    <form method="GET" onsubmit="logout(event)" action="ws.php?page=logout">
+        <input type="submit" value="Logout">
+    </form>
+
+    <br>Update Registration:
+    <form method="POST" onsubmit="updateReg(event)" action="ws.php?page=update-reg">
+        <input type="hidden" name="id" value="1">
+        <input type="text" name="first-name" placeholder="First name">
+        <input type="text" name="last-name" placeholder="Last name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Update">
+    </form>
+
+    <br>Select Category
+    <form method="GET" onsubmit="getCategory(event)" action="ws.php?page=get-category">
+        <select>
+            <option value="1">Bird</option>
+            <option value="2">Fish</option>
+            <option value="3">Mammal</option>
+            <option value="4">Reptile</option>
+        </select>
+        <input type="submit" value="Select One">
+    </form>
+
+    <br>Select All
+    <form method="GET" onsubmit="getAllCategories(event)" action="ws.php?page=select-all-categories">
+        <input type="submit" value="Select All">
+    </form>
+
+    <br>Delete Animal
+    <form method="GET" onsubmit="deleteAnimal(event)" action="ws.php?page=delete-animal">
+        <input type="submit" value="delete">
+    </form>
+
+    <!-- Templates -->
+    <form method="POST" onsubmit="postInsert(event)" action="ws.php?page=insert">
+        <input type="submit" value="insert">
+    </form>
+
+    <form method="POST" onsubmit="postUpdate(event)" action="ws.php?page=update">
+        <input type="submit" value="update">
+    </form>
+
+    <form method="GET" onsubmit="getDelete(event)" action="ws.php?page=delete">
+        <input type="submit" value="delete">
+    </form>
+
+    <form method="GET" onsubmit="getSelect(event)" action="ws.php?page=select">
+        <input type="text" value="1" id="id">
+        <input type="submit" value="select">
+    </form>
+
+    <form method="GET" onsubmit="getSelectAll(event)" action="ws.php?page=selectall">
+        <input type="submit" value="selectall">
+    </form>
+
+    <div id="output">
+        output goes here!
+    </div>
+
+    <div id="alertbox" onclick="hideAlert()" hidden>
+        <div id="alertclose">
+            X
+        </div>
+        <div id="alertmsg">
+            ERROR GOES HERE
+        </div>
+    </div>
+    
 </body>
 </html>
